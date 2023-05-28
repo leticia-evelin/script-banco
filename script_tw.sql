@@ -1,4 +1,3 @@
-
 create database db_tomorrows_water_2023;
  
 use db_tomorrows_water_2023;
@@ -72,21 +71,16 @@ create table tbl_recado(
 
 insert into tbl_genero(nome, sigla) values ('Feminino', 'FEM'), ('Masculino', 'MASC');
                         
-##TABELA COR
-create table tbl_cor(
-			 id int not null auto_increment primary key,
-			 nome varchar(45) not null
-);
-
-insert into tbl_cor(nome) values ('Branco'), ('Bege'), ('Marrom'), ('Azul');
 
 ##TABELA PRODUTOS
 create table tbl_produtos(
 			 id int not null auto_increment primary key,
              nome varchar(100) not null,
              descricao text not null,
+             cor varchar(100) not null,
              preco float not null,
              imagem varchar(150) not null,
+             altura varchar(50),
              largura varchar(50),
              comprimento varchar(50),
              tamanho_sigla varchar(5),
@@ -102,39 +96,6 @@ create table tbl_produtos(
 			unique index(id)
 ); 
 
-insert into tbl_produtos(nome, descricao, preco, imagem, largura, comprimento, peso, categoria, id_ong) 
-			values ('Ecobag sustentável', 
-					'Ecobag com logo da ONG. Nossa ideia é que nossos clientes deixem de usar sacolas plásticas que poluem nosso planeta e troque por sacolas reutilizáveis em algodão cru. Melhorando assim a condição do meio ambiente e a sustentabilidade.',
-                    '47.00', 'https://i.im.ge/2023/05/24/hqDV2f.ecobag-logo.png', '25mm de largura', '35x40 cm', null, '0,15 g', 'Produtos sustentáveis', 1 ),
-                    ('Ecobag sustentável', 
-                    'Ecobag modelo com nome da ONG. Nossa ideia é que nossos clientes deixem de usar sacolas plásticas que poluem nosso planeta e troque por sacolas reutilizáveis em algodão cru. Melhorando assim a condição do meio ambiente e a sustentabilidade.',
-                    '47,00', 'https://i.im.ge/2023/05/24/hqDZv1.ecobag-tw-preto.png', '25mm de largura', '35x40 cm', null, '0,15 g', 'Produtos sustentáveis', 1 ),
-                    ('Ecobag sustentável', 
-                    'Ecobag modelo com nome da ONG. Nossa ideia é que nossos clientes deixem de usar sacolas plásticas que poluem nosso planeta e troque por sacolas reutilizáveis em algodão cru. Melhorando assim a condição do meio ambiente e a sustentabilidade.',
-                    '47.00', 'https://i.im.ge/2023/05/24/hqDccC.ecobag-tw-azul.png', '25mm de largura', '35x40 cm'),
-                    ('Botton Tomorrows Water', 'Botton com logo da ONG', 'R$ 5.00', 'https://i.im.ge/2023/05/24/hqDf6m.botton-logo.png', '4,5x4,5 cm', '0.50cm', null, '6g', 'Acessório', 1
-                    
-			);
-                    
-
-##TABELA INTERMEDIÁRIA: PRODUTOS_COR
-create table tbl_produtos_cor(
-			 id int not null auto_increment primary key,
-			 id_produtos int not null,
-             id_cor int not null,
-             
-             #Relacionamento Produtos_ProdutosCor
-             constraint FK_Produtos_ProdutosCor
-             foreign key (id_produtos)
-             references tbl_produtos (id),
-             
-			 #Relacionamento Cor_ProdutosCor
-			 constraint FK_Cor_ProdutosCor
-             foreign key (id_cor)
-             references tbl_cor (id),
-             
-             unique index(id)
-);
 
 ##TABELA DOADOR
  create table tbl_doador(
@@ -194,6 +155,10 @@ create table tbl_voluntarios(
 			constraint FK_Genero_Voluntarios
 			foreign key (id_genero)
 			references tbl_genero (id),
+            
+            constraint FK_Ong_Voluntarios
+            foreign key (id_ong)
+            references tbl_onf (id),
                         
 			unique index(id)
 );
@@ -235,13 +200,6 @@ create table tbl_cidade(
                         nome varchar(45) not null,
                         sigla varchar(2) not null
 );
- 
-##TABELA TIPO TELEFONE
- create table tbl_tipo_telefone(
-								id int not null auto_increment primary key,
-                                tipo varchar(45) not null,
-                                sigla varchar(5)
-);
 
 ##TABELA TELEFONE
 create table tbl_telefone(
@@ -278,11 +236,6 @@ create table tbl_telefone(
 			constraint FK_Ong_Telefone
 			foreign key (id_ong)
 			references tbl_ong (id),
-            
-            ##TIPO TELEFONE
-            constraint FK_TipoTelefone_Telefone
-            foreign key (id_tipo_telefone)
-            references tbl_tipo_telefone (id),
             
             unique index(id)
 );
@@ -329,5 +282,3 @@ create table tbl_login(
              email varchar(255) not null,
              senha varchar(50) not null
 );
-
-
