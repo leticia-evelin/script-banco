@@ -100,20 +100,19 @@ insert into tbl_produtos(
                         comprimento,
                         tamanho_sigla,
                         peso,
-                        categoria,
-                        id_ong) values (
+                        categoria
+                        ) values (
                         'Camiseta TW', 
                         'Camiseta de algodão Tomorrows Water',
                         'Branco',
                         '112.50',
-                        'https://i.im.ge/2023/05/24/hqDbi4.camiseta-frente.png',
+                        'https://i.im.ge/2023/06/03/h3Pvg1.camiseta-tw.png',
                         null,
                         null,
                         null,
                         'M',
                         '200g',
-                        'Roupa',
-                        1
+                        'Roupa'
                         );
 
 insert into tbl_produtos(
@@ -123,39 +122,51 @@ insert into tbl_produtos(
             imagem, altura, 
             largura, comprimento, 
             tamanho_sigla, peso, 
-            categoria, id_ong
+            categoria
             ) values (
                'Ecobag sustentável',
                'Ecobag da ONG. Nossa ideia é que nossos clientes deixem de usar sacolas plásticas que poluem nosso planeta e troque por sacolas reutilizáveis em algodão cru. Melhorando assim a condição do meio ambiente e a sustentabilidade.',
                'Bege', '47',
-               'https://i.im.ge/2023/05/24/hqDccC.ecobag-tw-azul.png','40cm', 
+               'https://i.im.ge/2023/06/03/h3Pp0P.ecobag-water.png','40cm', 
                '25mm','35cm',
                null, '0.15g', 
-               'Produtos sustentáveis', 1
+               'Produtos sustentáveis'
 				),
+                
+                 ('Ecobag sustentável',
+                'Ecobag com logo da ONG. Nossa ideia é que nossos clientes deixem de usar sacolas plásticas que poluem nosso planeta e troque por sacolas reutilizáveis em algodão cru. Melhorando assim a condição do meio ambiente e a sustentabilidade.',
+                'Bege', '47',
+                'https://i.im.ge/2023/06/03/h3PkVq.ecobag-logo.png', '40cm',
+                '25mm', '35cm'
+                'null', '0.15g',
+                'Produtos sustentáveis'
+                ),
+                
+				('Ecobag sustentável',
+				'Ecobag da ONG. Nossa ideia é que nossos clientes deixem de usar sacolas plásticas que poluem nosso planeta e troque por sacolas reutilizáveis em algodão cru. Melhorando assim a condição do meio ambiente e a sustentabilidade.',
+                'Bege', '47',
+                'https://i.im.ge/2023/06/03/h3PHlp.ecobag-tw.png', '40cm',
+                '25mm', '35cm',
+                null, '0.15g',
+                'Produtos sustentáveis'
+                ),
+                
                 ('Garrafa Térmica Bambu TW',
                 'Garrafa Térmica com revestimento em bambu e aço inox, com parede dupla e infusor para chá. além da abundância e da beleza, o bambu ainda apresenta propriedades antibacterianas, é muito resistente, é leve, é versátil, é renovável e tem uma longa vida. Ecologicamente, o bambu cumpre um papel importantíssimo na proteção de nascentes e na preservação do solo firme.',
                 'Marrom', '99',
                 'https://i.im.ge/2023/05/24/hqDWCP.garrafa-logo.png', '20.4cm',
                 '6,9cm', '20cm',
                 null, '333g',
-                'Produtos para bebidas', 1
+                'Produtos para bebidas'
                 ),
-                ('Ecobag sustentável',
-				'Ecobag da ONG. Nossa ideia é que nossos clientes deixem de usar sacolas plásticas que poluem nosso planeta e troque por sacolas reutilizáveis em algodão cru. Melhorando assim a condição do meio ambiente e a sustentabilidade.',
-                'Bege', '47',
-                'https://i.im.ge/2023/05/24/hqDZv1.ecobag-tw-preto.png', '40cm',
-                '25mm', '35cm',
-                null, '0.15g',
-                'Produtos sustentáveis', 1
-                ),
+           
                 ('Garrafa Térmica Bambu',
                 'Garrafa Térmica com revestimento em bambu e aço inox, com parede dupla e infusor para chá. além da abundância e da beleza, o bambu ainda apresenta propriedades antibacterianas, é muito resistente, é leve, é versátil, é renovável e tem uma longa vida. Ecologicamente, o bambu cumpre um papel importantíssimo na proteção de nascentes e na preservação do solo firme.',
                 'Marrom', '99',
                 'https://i.im.ge/2023/05/24/hqDkVr.garrafa-tw.png', '20.4cm',
                 '6.9cm', '20cm',
                 null, '333g',
-                'Produtos para as bebidas', 1
+                'Produtos para as bebidas'
                 ),
                 ('Botton TW',
                 'Nossos bottons são feitos com o melhor material, desde o papel até o laminação do botton, tudo feito com muito carinho e cuidado para você! Para colocar na sua roupa, mochila, boné, etc...',
@@ -163,23 +174,15 @@ insert into tbl_produtos(
                 'https://i.im.ge/2023/05/24/hqDf6m.botton-logo.png', '3.80cm',
                 '0.10cm', '3.80cm',
                 null, '50g',
-                'Acessórios', 1
+                'Acessórios'
                 ), 
-                ('Ecobag sustentável',
-                'Ecobag com logo da ONG. Nossa ideia é que nossos clientes deixem de usar sacolas plásticas que poluem nosso planeta e troque por sacolas reutilizáveis em algodão cru. Melhorando assim a condição do meio ambiente e a sustentabilidade.',
-                'Bege', '47',
-                'https://i.im.ge/2023/05/24/hqDV2f.ecobag-logo.png', '40cm',
-                '25mm', '35cm'
-                'null', '0.15g',
-                'Produtos sustentáveis', 1
-                ),
                 ('Botton Tomorrow',
                 'Nossos bottons são feitos com o melhor material, desde o papel até o laminação do botton, tudo feito com muito carinho e cuidado para você! Para colocar na sua roupa, mochila, boné, etc...',
                 'Branco', '5',
                 'https://i.im.ge/2023/05/24/hdWe8m.botton-tw.png', '3.80cm',
                 '0.10cm', '3.80cm',
                 null, '50g',
-                'Acessórios', 1
+                'Acessórios'
                 );
 
 
@@ -254,30 +257,38 @@ create table tbl_projetos(
 			 id int not null auto_increment primary key,
 			 nome varchar(150) not null,
 			 descricao text not null,
-			 imagem varchar(150), 
-			 #chave estrangeira da ong 
-			 id_ong int not null,
-                        
-			constraint FK_Ong_Projetos
-			foreign key (id_ong)
-			references tbl_ong (id),
-                        
-			unique index(id)
+			 imagem varchar(170)
 );
 select * from tbl_projetos;
 insert into tbl_projetos(
-			nome, descricao, imagem, id_ong
-            ) values (
+			nome, descricao, imagem
+            ) values ( 
+            'Bem estar',
+            'Buscamos trazer um local para viver digno a todos os cidadões, sem a presença de esgotos a céu aberto e outros problemas devidos a falta de saneamento básico, para sanarmos com isso vamos realizar obras de melhoria em lugares precários e esquecidos na região do Macapá. O saneamento básico desempenha um papel crucial na 
+            promoção do bem-estar e na garantia de uma vida saudável para todos. Infelizmente, em muitas regiões, a falta de infraestrutura adequada tem impactos significativos na qualidade de vida das pessoas. Esgotos a céu aberto representam um grave risco à saúde, contribuindo para a propagação de doenças e afetando a dignidade e 
+            o conforto dos indivíduos. Nesse sentido, estamos comprometidos em implementar obras de melhoria que visam solucionar essas questões. Compreendemos que é necessário direcionar esforços para as áreas mais vulneráveis e negligenciadas, onde os problemas relacionados ao saneamento básico são mais prementes. Acreditamos que todos os 
+            cidadãos merecem viver em um ambiente limpo, seguro e saudável. Com a conclusão dessas obras, proporcionaremos às comunidades uma infraestrutura sólida que lhes permitirá desfrutar de um ambiente propício ao desenvolvimento físico, mental e social. O acesso a água limpa e saneamento adequado não apenas previne doenças, mas também promove 
+            a dignidade humana, a inclusão social e a melhoria da qualidade de vida. Esses projetos contribuem para a transformação de áreas negligenciadas em espaços vibrantes e prósperos.',
+            
+            'https://portal.fgv.br/sites/portal.fgv.br/files/styles/noticia_geral/public/noticias/08/21/saneamento_0.jpg?itok=n-MRNY0G'),
+            (
             'Saúde',
-            'Nosso principal projeto envolvido na área da saúde é levar a água potável para as pessoas com maior careza no acesso a este bem tão precioso. Nosso foco está no munícipio do macapá onde a situação é alarmante, a distribuição das garrafinhas de água será feita por voluntários da nossa ong.',
-            'imagem aqui', 1), (
+            'Nosso principal projeto envolvido na área da saúde é levar água potável para as pessoas com maior carência no acesso a este bem tão precioso. A água é essencial para a sobrevivência e bem-estar humano, e é preocupante constatar que muitas comunidades ainda sofrem com a falta de acesso a água potável.
+             Em particular, temos concentrado nossos esforços no município de Macapá, onde a situação é alarmante. Macapá, a capital do estado do Amapá, enfrenta desafios significativos em relação ao abastecimento de água. Infelizmente, muitos moradores não têm acesso a fontes seguras de água potável, o que pode levar a 
+             problemas graves de saúde.Para lidar com essa questão, nossa ONG tem mobilizado voluntários para distribuir garrafinhas de água nas áreas mais afetadas. Reconhecemos que a falta de acesso à água potável é uma questão urgente e, por meio dessa iniciativa, buscamos fornecer alívio imediato às comunidades afetadas.
+             Buscamos colaborar com autoridades locais, organizações governamentais e outras ONGs para encontrar soluções sustentáveis ​​e de longo prazo para garantir o acesso universal à água potável em Macapá.Nossa luta pela saúde continua, e estamos determinados a alcançar resultados tangíveis. Acreditamos que, através da solidariedade, 
+             esforço coletivo e conscientização, podemos fazer a diferença na vida das pessoas afetadas pela falta de acesso à água potável. A saúde é um direito fundamental, e continuaremos nossa missão de levar saúde e bem-estar para aqueles que mais precisam.',
+             
+            'https://sisejufe.org.br/wp-content/uploads/2020/04/WhatsApp-Image-2020-04-28-at-15.15.39.jpeg'), 
+            (
             'Higiene',
-            'Nesta área buscamos zelar pela higiene digna de todas as pessoas independentemente das condições em que vivem e onde vivem, para isso vamos levar postos de higienização pessoal que serão barcos com banheiros, para que a higienização seja mais acessivel e não seja um problema se tornando parte da rotina.',
-            'imagem aqui', 1),
-            ( 'Bem estar',
-            'Buscamos trazer um local para viver digno a todos os cidadões, sem a presença de esgotos a céu aberto e outros problemas devidos a falta de saneamento básico, para sanarmos com isso vamos realizar obras de melhoria em lugares precários e esquecidos na região do macapá.',
-            'imagem aqui', 1);
-
+            'Nesta área, buscamos zelar pela higiene digna de todas as pessoas, independentemente das condições em que vivem e do local em que residem. Reconhecendo que a higiene é um direito básico e essencial para a saúde e o bem-estar de cada indivíduo, nossa iniciativa consiste em levar postos de higienização pessoal a diferentes 
+            comunidades por meio de barcos equipados com banheiros. A acessibilidade à higiene adequada é um desafio enfrentado por muitas pessoas em todo o mundo, especialmente aquelas que vivem em áreas remotas, carentes de infraestrutura básica. Ao trazer esses barcos com banheiros, pretendemos eliminar as barreiras que dificultam 
+            o acesso à higiene e garantir que ela se torne parte integrante da rotina diária de cada indivíduo. A abordagem inovadora de utilizar barcos como postos de higienização pessoal tem como objetivo atingir comunidades que estão situadas em regiões de difícil acesso, como áreas ribeirinhas ou ilhas remotas. Essas regiões muitas 
+            vezes carecem de serviços essenciais, como água potável, instalações sanitárias adequadas e acesso a produtos de higiene. Com a presença desses barcos, levamos a higiene diretamente às comunidades, reduzindo a distância física e tornando-a mais acessível.Acreditamos firmemente que a higiene não deve ser um privilégio, mas 
+            sim um direito de todos. Ao levar postos de higienização pessoal por meio de barcos, estamos rompendo as barreiras que impedem o acesso universal à higiene, permitindo que pessoas em todas as condições de vida tenham a oportunidade de desfrutar de uma higiene digna e saudável.',
+            'https://tribunademinas.com.br/wp-content/uploads/2020/04/trailer-solid%C3%A1rio-divulga%C3%A7%C3%A3o-sociedade-s%C3%A3o-vicente-de-paulo.jpg');
+          
 
 ##TABELA CIDADE
 create table tbl_cidade(
