@@ -2,7 +2,7 @@ create database db_tomorrows_water_2023;
  
 use db_tomorrows_water_2023;
 show tables; 
-##TABELA ONG 
+##TABELA ONG  OK
 create table tbl_ong(
 			 id int not null auto_increment primary key,
 			 nome varchar(80) not null,
@@ -27,7 +27,7 @@ insert into tbl_ong(
              );
 select * from tbl_ong;
  
-##TABELA PATROCINADOR
+##TABELA PATROCINADOR  OK
 create table tbl_patrocinador(
 			 id int not null auto_increment primary key,
              razao_social varchar(80) not null,
@@ -46,23 +46,15 @@ create table tbl_patrocinador(
 			unique index(id)
 );
 
-##TABELA RECADO
+##TABELA RECADO  OK
 create table tbl_recado(
 			 id int not null auto_increment primary key,
              nome varchar(50) not null,
              email varchar(255) not null,
-             mensagem text not null,
-			 #chave estrangeira da ong 
-			 id_ong int not null,
-                        
-			constraint FK_Ong_Recado
-			foreign key (id_ong)
-			references tbl_ong (id),
-                        
-			unique index(id)
+             mensagem text not null
 );
 
-##TABELA DE GENERO
+##TABELA DE GENERO  OK
  create table tbl_genero(
 			 id int not null auto_increment primary key,
 			 nome varchar(45) not null,
@@ -72,7 +64,7 @@ create table tbl_recado(
 insert into tbl_genero(nome, sigla) values ('Feminino', 'F'), ('Masculino', 'M'), ('O', 'Outros');
                         
 
-##TABELA PRODUTOS
+##TABELA PRODUTOS  OK
 create table tbl_produtos(
 			 id int not null auto_increment primary key,
              nome varchar(100) not null,
@@ -191,7 +183,7 @@ insert into tbl_produtos(
                 );
 
 
-##TABELA DOADOR
+##TABELA DOADOR	OK
  create table tbl_doador(
 			 id int not null auto_increment primary key,
 			 nome varchar(50) not null,
@@ -257,7 +249,7 @@ create table tbl_voluntarios(
 			unique index(id)
 );
 
-##TABELA PROJETOS
+##TABELA PROJETOS  OK
 create table tbl_projetos(
 			 id int not null auto_increment primary key,
 			 nome varchar(150) not null,
@@ -384,9 +376,12 @@ create table tbl_endereco(
 			unique index(id)
 );
 
-##TABELA DASHBOARD ##PERGUNTAR SOBRE
-create table tbl_login(
+##TABELA DASHBOARD  OK
+create table tbl_administrador(
 			 id int not null auto_increment primary key,
+             nome varchar(50) not null,
              email varchar(255) not null,
              senha varchar(50) not null
 );
+
+insert into tbl_administrador(nome, email, senha) values ('Leticia', 'leticia@gmail.com', 'teste123');
