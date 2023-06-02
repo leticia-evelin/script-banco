@@ -77,18 +77,10 @@ create table tbl_produtos(
              comprimento varchar(50),
              tamanho_sigla varchar(5),
              peso varchar(50) not null,
-             categoria varchar(80) not null,
-			 #chave estrangeira da ong 
-			 id_ong int not null,
-                        
-			constraint FK_Ong_Produtos
-			foreign key (id_ong)
-			references tbl_ong (id),
-                        
-			unique index(id)
+             categoria varchar(80) not null
 ); 
 select * from tbl_produtos;
-
+drop table tbl_produtos;
 insert into tbl_produtos(
 						nome, 
                         descricao, 
@@ -137,8 +129,8 @@ insert into tbl_produtos(
                 'Ecobag com logo da ONG. Nossa ideia é que nossos clientes deixem de usar sacolas plásticas que poluem nosso planeta e troque por sacolas reutilizáveis em algodão cru. Melhorando assim a condição do meio ambiente e a sustentabilidade.',
                 'Bege', '47',
                 'https://i.im.ge/2023/06/03/h3PkVq.ecobag-logo.png', '40cm',
-                '25mm', '35cm'
-                'null', '0.15g',
+                '25mm', '35cm',
+                null, '0.15g',
                 'Produtos sustentáveis'
                 ),
                 
@@ -264,29 +256,15 @@ insert into tbl_projetos(
 			nome, descricao, imagem
             ) values ( 
             'Bem estar',
-            'Buscamos trazer um local para viver digno a todos os cidadões, sem a presença de esgotos a céu aberto e outros problemas devidos a falta de saneamento básico, para sanarmos com isso vamos realizar obras de melhoria em lugares precários e esquecidos na região do Macapá. O saneamento básico desempenha um papel crucial na 
-            promoção do bem-estar e na garantia de uma vida saudável para todos. Infelizmente, em muitas regiões, a falta de infraestrutura adequada tem impactos significativos na qualidade de vida das pessoas. Esgotos a céu aberto representam um grave risco à saúde, contribuindo para a propagação de doenças e afetando a dignidade e 
-            o conforto dos indivíduos. Nesse sentido, estamos comprometidos em implementar obras de melhoria que visam solucionar essas questões. Compreendemos que é necessário direcionar esforços para as áreas mais vulneráveis e negligenciadas, onde os problemas relacionados ao saneamento básico são mais prementes. Acreditamos que todos os 
-            cidadãos merecem viver em um ambiente limpo, seguro e saudável. Com a conclusão dessas obras, proporcionaremos às comunidades uma infraestrutura sólida que lhes permitirá desfrutar de um ambiente propício ao desenvolvimento físico, mental e social. O acesso a água limpa e saneamento adequado não apenas previne doenças, mas também promove 
-            a dignidade humana, a inclusão social e a melhoria da qualidade de vida. Esses projetos contribuem para a transformação de áreas negligenciadas em espaços vibrantes e prósperos.',
-            
+            'Buscamos trazer um local para viver digno a todos os cidadões, sem a presença de esgotos a céu aberto e outros problemas devidos a falta de saneamento básico, para sanarmos com isso vamos realizar obras de melhoria em lugares precários e esquecidos na região do Macapá. O saneamento básico desempenha um papel crucial na promoção do bem-estar e na garantia de uma vida saudável para todos. Infelizmente, em muitas regiões, a falta de infraestrutura adequada tem impactos significativos na qualidade de vida das pessoas. Esgotos a céu aberto representam um grave risco à saúde, contribuindo para a propagação de doenças e afetando a dignidade e o conforto dos indivíduos. Nesse sentido, estamos comprometidos em implementar obras de melhoria que visam solucionar essas questões. Compreendemos que é necessário direcionar esforços para as áreas mais vulneráveis e negligenciadas, onde os problemas relacionados ao saneamento básico são mais prementes. Acreditamos que todos os cidadãos merecem viver em um ambiente limpo, seguro e saudável. Com a conclusão dessas obras, proporcionaremos às comunidades uma infraestrutura sólida que lhes permitirá desfrutar de um ambiente propício ao desenvolvimento físico, mental e social. O acesso a água limpa e saneamento adequado não apenas previne doenças, mas também promove a dignidade humana, a inclusão social e a melhoria da qualidade de vida. Esses projetos contribuem para a transformação de áreas negligenciadas em espaços vibrantes e prósperos.',
             'https://portal.fgv.br/sites/portal.fgv.br/files/styles/noticia_geral/public/noticias/08/21/saneamento_0.jpg?itok=n-MRNY0G'),
             (
             'Saúde',
-            'Nosso principal projeto envolvido na área da saúde é levar água potável para as pessoas com maior carência no acesso a este bem tão precioso. A água é essencial para a sobrevivência e bem-estar humano, e é preocupante constatar que muitas comunidades ainda sofrem com a falta de acesso a água potável.
-             Em particular, temos concentrado nossos esforços no município de Macapá, onde a situação é alarmante. Macapá, a capital do estado do Amapá, enfrenta desafios significativos em relação ao abastecimento de água. Infelizmente, muitos moradores não têm acesso a fontes seguras de água potável, o que pode levar a 
-             problemas graves de saúde.Para lidar com essa questão, nossa ONG tem mobilizado voluntários para distribuir garrafinhas de água nas áreas mais afetadas. Reconhecemos que a falta de acesso à água potável é uma questão urgente e, por meio dessa iniciativa, buscamos fornecer alívio imediato às comunidades afetadas.
-             Buscamos colaborar com autoridades locais, organizações governamentais e outras ONGs para encontrar soluções sustentáveis ​​e de longo prazo para garantir o acesso universal à água potável em Macapá.Nossa luta pela saúde continua, e estamos determinados a alcançar resultados tangíveis. Acreditamos que, através da solidariedade, 
-             esforço coletivo e conscientização, podemos fazer a diferença na vida das pessoas afetadas pela falta de acesso à água potável. A saúde é um direito fundamental, e continuaremos nossa missão de levar saúde e bem-estar para aqueles que mais precisam.',
-             
+            'Nosso principal projeto envolvido na área da saúde é levar água potável para as pessoas com maior carência no acesso a este bem tão precioso. A água é essencial para a sobrevivência e bem-estar humano, e é preocupante constatar que muitas comunidades ainda sofrem com a falta de acesso a água potável. Em particular, temos concentrado nossos esforços no município de Macapá, onde a situação é alarmante. Macapá, a capital do estado do Amapá, enfrenta desafios significativos em relação ao abastecimento de água. Infelizmente, muitos moradores não têm acesso a fontes seguras de água potável, o que pode levar a problemas graves de saúde.Para lidar com essa questão, nossa ONG tem mobilizado voluntários para distribuir garrafinhas de água nas áreas mais afetadas. Reconhecemos que a falta de acesso à água potável é uma questão urgente e, por meio dessa iniciativa, buscamos fornecer alívio imediato às comunidades afetadas. Buscamos colaborar com autoridades locais, organizações governamentais e outras ONGs para encontrar soluções sustentáveis ​​e de longo prazo para garantir o acesso universal à água potável em Macapá.Nossa luta pela saúde continua, e estamos determinados a alcançar resultados tangíveis. Acreditamos que, através da solidariedade, esforço coletivo e conscientização, podemos fazer a diferença na vida das pessoas afetadas pela falta de acesso à água potável. A saúde é um direito fundamental, e continuaremos nossa missão de levar saúde e bem-estar para aqueles que mais precisam.',
             'https://sisejufe.org.br/wp-content/uploads/2020/04/WhatsApp-Image-2020-04-28-at-15.15.39.jpeg'), 
             (
             'Higiene',
-            'Nesta área, buscamos zelar pela higiene digna de todas as pessoas, independentemente das condições em que vivem e do local em que residem. Reconhecendo que a higiene é um direito básico e essencial para a saúde e o bem-estar de cada indivíduo, nossa iniciativa consiste em levar postos de higienização pessoal a diferentes 
-            comunidades por meio de barcos equipados com banheiros. A acessibilidade à higiene adequada é um desafio enfrentado por muitas pessoas em todo o mundo, especialmente aquelas que vivem em áreas remotas, carentes de infraestrutura básica. Ao trazer esses barcos com banheiros, pretendemos eliminar as barreiras que dificultam 
-            o acesso à higiene e garantir que ela se torne parte integrante da rotina diária de cada indivíduo. A abordagem inovadora de utilizar barcos como postos de higienização pessoal tem como objetivo atingir comunidades que estão situadas em regiões de difícil acesso, como áreas ribeirinhas ou ilhas remotas. Essas regiões muitas 
-            vezes carecem de serviços essenciais, como água potável, instalações sanitárias adequadas e acesso a produtos de higiene. Com a presença desses barcos, levamos a higiene diretamente às comunidades, reduzindo a distância física e tornando-a mais acessível.Acreditamos firmemente que a higiene não deve ser um privilégio, mas 
-            sim um direito de todos. Ao levar postos de higienização pessoal por meio de barcos, estamos rompendo as barreiras que impedem o acesso universal à higiene, permitindo que pessoas em todas as condições de vida tenham a oportunidade de desfrutar de uma higiene digna e saudável.',
+            'Nesta área, buscamos zelar pela higiene digna de todas as pessoas, independentemente das condições em que vivem e do local em que residem. Reconhecendo que a higiene é um direito básico e essencial para a saúde e o bem-estar de cada indivíduo, nossa iniciativa consiste em levar postos de higienização pessoal a diferentes comunidades por meio de barcos equipados com banheiros. A acessibilidade à higiene adequada é um desafio enfrentado por muitas pessoas em todo o mundo, especialmente aquelas que vivem em áreas remotas, carentes de infraestrutura básica. Ao trazer esses barcos com banheiros, pretendemos eliminar as barreiras que dificultam o acesso à higiene e garantir que ela se torne parte integrante da rotina diária de cada indivíduo. A abordagem inovadora de utilizar barcos como postos de higienização pessoal tem como objetivo atingir comunidades que estão situadas em regiões de difícil acesso, como áreas ribeirinhas ou ilhas remotas. Essas regiões muitas vezes carecem de serviços essenciais, como água potável, instalações sanitárias adequadas e acesso a produtos de higiene. Com a presença desses barcos, levamos a higiene diretamente às comunidades, reduzindo a distância física e tornando-a mais acessível.Acreditamos firmemente que a higiene não deve ser um privilégio, mas sim um direito de todos. Ao levar postos de higienização pessoal por meio de barcos, estamos rompendo as barreiras que impedem o acesso universal à higiene, permitindo que pessoas em todas as condições de vida tenham a oportunidade de desfrutar de uma higiene digna e saudável.',
             'https://tribunademinas.com.br/wp-content/uploads/2020/04/trailer-solid%C3%A1rio-divulga%C3%A7%C3%A3o-sociedade-s%C3%A3o-vicente-de-paulo.jpg');
           
 
