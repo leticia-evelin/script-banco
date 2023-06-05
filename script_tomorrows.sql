@@ -76,9 +76,7 @@ insert into tbl_produtos(
                         imagem, 
                         altura, 
                         largura, 
-                        comprimento,
                         tamanho_sigla,
-                        peso,
                         categoria
                         ) values (
                         'Camiseta TW', 
@@ -88,9 +86,7 @@ insert into tbl_produtos(
                         'https://i.im.ge/2023/06/03/h3Pvg1.camiseta-tw.png',
                         null,
                         null,
-                        null,
                         'M',
-                        '200g',
                         'Roupa'
                         );
 
@@ -99,16 +95,16 @@ insert into tbl_produtos(
             descricao, 
             cor, preco, 
             imagem, altura, 
-            largura, comprimento, 
-            tamanho_sigla, peso, 
+            largura,  
+            tamanho_sigla, 
             categoria
             ) values (
                'Ecobag sustentável',
                'Ecobag da ONG. Nossa ideia é que nossos clientes deixem de usar sacolas plásticas que poluem nosso planeta e troque por sacolas reutilizáveis em algodão cru. Melhorando assim a condição do meio ambiente e a sustentabilidade.',
                'Bege', '47',
                'https://i.im.ge/2023/06/03/h3Pp0P.ecobag-water.png','40cm', 
-               '25mm','35cm',
-               null, '0.15g', 
+               '25mm',
+               null, 
                'Produtos sustentáveis'
 				),
                 
@@ -116,8 +112,8 @@ insert into tbl_produtos(
                 'Ecobag com logo da ONG. Nossa ideia é que nossos clientes deixem de usar sacolas plásticas que poluem nosso planeta e troque por sacolas reutilizáveis em algodão cru. Melhorando assim a condição do meio ambiente e a sustentabilidade.',
                 'Bege', '47',
                 'https://i.im.ge/2023/06/03/h3PkVq.ecobag-logo.png', '40cm',
-                '25mm', '35cm',
-                null, '0.15g',
+                '25mm', 
+                null, 
                 'Produtos sustentáveis'
                 ),
                 
@@ -125,8 +121,8 @@ insert into tbl_produtos(
 				'Ecobag da ONG. Nossa ideia é que nossos clientes deixem de usar sacolas plásticas que poluem nosso planeta e troque por sacolas reutilizáveis em algodão cru. Melhorando assim a condição do meio ambiente e a sustentabilidade.',
                 'Bege', '47',
                 'https://i.im.ge/2023/06/03/h3PHlp.ecobag-tw.png', '40cm',
-                '25mm', '35cm',
-                null, '0.15g',
+                '25mm', 
+                null, 
                 'Produtos sustentáveis'
                 ),
                 
@@ -134,8 +130,8 @@ insert into tbl_produtos(
                 'Garrafa Térmica com revestimento em bambu e aço inox, com parede dupla e infusor para chá. além da abundância e da beleza, o bambu ainda apresenta propriedades antibacterianas, é muito resistente, é leve, é versátil, é renovável e tem uma longa vida. Ecologicamente, o bambu cumpre um papel importantíssimo na proteção de nascentes e na preservação do solo firme.',
                 'Marrom', '99',
                 'https://i.im.ge/2023/05/24/hqDWCP.garrafa-logo.png', '20.4cm',
-                '6,9cm', '20cm',
-                null, '333g',
+                '6,9cm', 
+                null, 
                 'Produtos para bebidas'
                 ),
            
@@ -143,24 +139,24 @@ insert into tbl_produtos(
                 'Garrafa Térmica com revestimento em bambu e aço inox, com parede dupla e infusor para chá. além da abundância e da beleza, o bambu ainda apresenta propriedades antibacterianas, é muito resistente, é leve, é versátil, é renovável e tem uma longa vida. Ecologicamente, o bambu cumpre um papel importantíssimo na proteção de nascentes e na preservação do solo firme.',
                 'Marrom', '99',
                 'https://i.im.ge/2023/05/24/hqDkVr.garrafa-tw.png', '20.4cm',
-                '6.9cm', '20cm',
-                null, '333g',
+                '6.9cm', 
+                null, 
                 'Produtos para as bebidas'
                 ),
                 ('Botton TW',
                 'Nossos bottons são feitos com o melhor material, desde o papel até o laminação do botton, tudo feito com muito carinho e cuidado para você! Para colocar na sua roupa, mochila, boné, etc...',
                 'Branco', '5',
                 'https://i.im.ge/2023/05/24/hqDf6m.botton-logo.png', '3.80cm',
-                '0.10cm', '3.80cm',
-                null, '50g',
+                '0.10cm', 
+                null, 
                 'Acessórios'
                 ), 
                 ('Botton Tomorrow',
                 'Nossos bottons são feitos com o melhor material, desde o papel até o laminação do botton, tudo feito com muito carinho e cuidado para você! Para colocar na sua roupa, mochila, boné, etc...',
                 'Branco', '5',
                 'https://i.im.ge/2023/05/24/hdWe8m.botton-tw.png', '3.80cm',
-                '0.10cm', '3.80cm',
-                null, '50g',
+                '0.10cm', 
+                null, 
                 'Acessórios'
                 );
 
@@ -221,6 +217,8 @@ select * from tbl_doacao;
                         
 			unique index(id)
 );
+select * from tbl_doador;
+
 insert into tbl_doador(nome, email, cpf, data_nascimento, id_telefone) values ('Maria', 'maria@gmail.com', '215.459.457-73', '1999-09-09', 1);
 
 ##TABELA VOLUNTÁRIOS OK
@@ -244,10 +242,14 @@ create table tbl_voluntarios(
                         
 			unique index(id)
 );
-
+drop table tbl_voluntarios;
 select * from tbl_voluntarios;
+ALTER TABLE tbl_voluntarios
+MODIFY COLUMN id_telefone INT NOT NULL;
+
+select * from tbl_telefone;
 insert into tbl_voluntarios(nome, email, data_nascimento, cpf, id_genero, id_telefone) 
-values ('Leticia', 'leticia@gmail.com', '2004-11-26', '526.907.358-73', 1, 1);
+values ('Leticia', 'leticia@gmail.com', '2004-11-26', '526.907.358-73', 1, 2);
 select * from tbl_voluntarios;
 
 
@@ -277,7 +279,7 @@ create table tbl_telefone(
 			 id int not null auto_increment primary key,
              numero varchar(25) not null
 );
-insert into tbl_telefone(numero) values ('(11) 4707-3492');
+insert into tbl_telefone(numero) values ('(11) 4739-3492');
 select * from tbl_telefone;
 
 
