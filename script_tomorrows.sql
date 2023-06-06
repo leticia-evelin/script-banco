@@ -10,14 +10,7 @@ create table tbl_ong(
 			 email varchar(255) not null,
 			 area_atuacao varchar(150) not null,
 			 data_fundacao date not null,
-			 #chave estrangeira do telefone 
-			 id_telefone int not null,
-                        
-			 constraint FK_Telefone_Ong
-			 foreign key (id_telefone)
-			 references tbl_telefone (id),
-                        
-			unique index(id)
+			 telefone varchar(20) not null
 );
 
 insert into tbl_ong(
@@ -26,13 +19,13 @@ insert into tbl_ong(
             email, 
             area_atuacao, 
             data_fundacao,
-            id_telefone
+            telefone
             ) values (
             'Tomorrows Water', 
             'Fortalecer as propostas da ODS 6, baseado no bem-estar da população, com acesso à saúde por meio da água e saneamento básico.',
 			'tomorrowswater@gmail.com',
              'Saneamento e água potável',
-             '1987-07-01', 1
+             '1987-07-01', '(11)98547-2354'
              );
 
 ##TABELA RECADO  OK
@@ -42,6 +35,8 @@ create table tbl_recado(
              email varchar(255) not null,
              mensagem text not null
 );
+
+show tables;
 
 ##TABELA DE GENERO  OK
  create table tbl_genero(
@@ -62,11 +57,10 @@ create table tbl_produtos(
              imagem varchar(150) not null,
              altura varchar(50),
              largura varchar(50),
-             comprimento varchar(50),
              tamanho_sigla varchar(5),
-             peso varchar(50) not null,
              categoria varchar(80) not null
 ); 
+drop table tbl_produtos;
 select * from tbl_produtos;
 insert into tbl_produtos(
 						nome, 
@@ -208,18 +202,11 @@ select * from tbl_doacao;
 			 email varchar(255) not null,
 			 cpf varchar(45) not null,
 			 data_nascimento date not null,
-			 #chave estrangeira do telefone 
-			 id_telefone int not null,
-                        
-			 constraint FK_Telefone_Doador
-			 foreign key (id_telefone)
-			 references tbl_telefone (id),
-                        
-			unique index(id)
+			 telefone varchar(20) not null
 );
 select * from tbl_doador;
 
-insert into tbl_doador(nome, email, cpf, data_nascimento, id_telefone) values ('Maria', 'maria@gmail.com', '215.459.457-73', '1999-09-09', 1);
+insert into tbl_doador(nome, email, cpf, data_nascimento, telefone) values ('Maria', 'maria@gmail.com', '215.459.457-73', '1999-09-09', '11944578236');
 
 ##TABELA VOLUNTÁRIOS OK
 create table tbl_voluntarios(
@@ -228,28 +215,24 @@ create table tbl_voluntarios(
 			 email varchar(255) not null,
 			 data_nascimento date not null,
 			 cpf varchar(45) not null,
+             telefone varchar(20) not null,
 			 #chave estrangeira de genero
 			 id_genero int not null,
-             id_telefone int not null,
                         
 			constraint FK_Genero_Voluntarios
 			foreign key (id_genero)
 			references tbl_genero (id),
             
-            constraint FK_Telefone_Voluntarios
-			foreign key (id_telefone)
-			references tbl_telefone (id),
                         
 			unique index(id)
 );
 drop table tbl_voluntarios;
 select * from tbl_voluntarios;
-ALTER TABLE tbl_voluntarios
-MODIFY COLUMN id_telefone INT NOT NULL;
 
-select * from tbl_telefone;
-insert into tbl_voluntarios(nome, email, data_nascimento, cpf, id_genero, id_telefone) 
-values ('Leticia', 'leticia@gmail.com', '2004-11-26', '526.907.358-73', 1, 2);
+
+
+insert into tbl_voluntarios(nome, email, data_nascimento, cpf, telefone, id_genero) 
+values ('Leticia', 'leticia@gmail.com', '2004-11-26', '526.907.358-73', '11978543287', 1);
 select * from tbl_voluntarios;
 
 
@@ -260,27 +243,13 @@ create table tbl_patrocinador(
              razao_social varchar(80) not null,
              cnpj varchar(45) not null,
              email varchar(255) not null,
-             #chave estrangeira do telefone
-			 id_telefone int not null,
-                        
-			 constraint FK_Telefone_Patrocinador
-			 foreign key (id_telefone)
-			 references tbl_telefone (id),
-                        
-			unique index(id)
+             telefone varchar(20) not null
 );
 
 select * from tbl_patrocinador;
-insert into tbl_patrocinador(razao_social, cnpj, email, id_telefone) values ('Empresa', '123456', 'empresa@gmail.com', 2);
+insert into tbl_patrocinador(razao_social, cnpj, email, telefone) values ('Empresa', '123456', 'empresa@gmail.com', '1147073492');
 
 
-##TABELA TELEFONE OK
-create table tbl_telefone(
-			 id int not null auto_increment primary key,
-             numero varchar(25) not null
-);
-insert into tbl_telefone(numero) values ('(11) 4739-3492');
-select * from tbl_telefone;
 
 
 ##TABELA DASHBOARD  OK
@@ -290,66 +259,7 @@ create table tbl_administrador(
              email varchar(255) not null,
              senha varchar(50) not null
 );
-
+drop table tbl_administrador;
 insert into tbl_administrador(nome, email, senha) values ('Leticia', 'leticia@gmail.com', 'teste123');
+select * from tbl_voluntarios;
 
-
-##TABELA CIDADE
-create table tbl_cidade(
-			 id int not null auto_increment primary key,
-			 nome varchar(80) not null,
-			 sigla varchar(5) not null,
-			 #chave estrangeira de estado 
-			 id_estado int not null,
-                        
-			 constraint FK_Estado_Cidade
-			 foreign key (id_estado)
-			 references tbl_estado (id),
-                        
-			 unique index(id)
-);
-
-
-##TABELA ESTADO
- create table tbl_estado(
-						id int not null auto_increment primary key,
-                        nome varchar(45) not null,
-                        sigla varchar(2) not null
-);
-
-
-##TABELA ENDEREÇO
-create table tbl_endereco(
-			 id int not null auto_increment primary key,
-             logradouro varchar(50) not null,
-             cep varchar(45) not null,
-             numero varchar(45) not null,
-             complemento varchar(100),
-			 #chaves estrangeiras
-			 id_ong int not null,
-             id_cidade int not null,
-             id_voluntarios int not null,
-             id_doador int not null,
-            
-            ##ONG
-			constraint FK_Ong_Endereco
-			foreign key (id_ong)
-			references tbl_ong (id),
-            
-            ##CIDADE
-            constraint FK_Cidade_Endereco
-            foreign key (id_cidade)
-            references tbl_cidade (id),
-            
-            ##VOLUNTARIOS
-            constraint FK_Voluntarios_Endereco
-            foreign key (id_voluntarios)
-            references tbl_voluntarios (id),
-            
-            ##DOADOR
-            constraint FK_Doador_Endereco
-            foreign key (id_doador)
-            references tbl_doador (id),
-                    
-			unique index(id)
-);
